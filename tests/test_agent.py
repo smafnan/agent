@@ -35,6 +35,12 @@ def test_calculator_division_by_zero_raises_toolerror():
         Calculator().run("1/0")
 
 
+def test_calculator_rejects_bool_operands():
+    import pytest
+    with pytest.raises(ToolError):
+        Calculator().run("True + 1")
+
+
 def test_search_hit_and_miss():
     s = Search()
     assert "299,792,458" in s.run("speed of light")

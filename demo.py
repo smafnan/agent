@@ -9,7 +9,7 @@ against a real model instead, construct the agent with
 
 from __future__ import annotations
 
-from src.agent import Agent, Calculator, FlakyAPI, ScriptedLLM, Search
+from agent import Agent, Calculator, FlakyAPI, ScriptedLLM, Search
 
 
 def scripted_policy(system: str, transcript: str) -> str:

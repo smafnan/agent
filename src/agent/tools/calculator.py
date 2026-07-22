@@ -24,7 +24,9 @@ _UNARY = {ast.UAdd: operator.pos, ast.USub: operator.neg}
 
 
 def _eval(node: ast.AST) -> float:
-    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+    if (isinstance(node, ast.Constant)
+            and isinstance(node.value, (int, float))
+            and not isinstance(node.value, bool)):
         return node.value
     if isinstance(node, ast.BinOp) and type(node.op) in _BINOPS:
         return _BINOPS[type(node.op)](_eval(node.left), _eval(node.right))
